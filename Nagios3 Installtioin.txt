@@ -1,0 +1,27 @@
+Nagios3 Installation :
+1) Launch new instance (ubuntu,Red hat..etc)
+2) Install tasksel in your os (apt-get install tasksel)
+3) Then type tasksel in terminal (give Space bar -----> Enter) 
+4) Give ms-sql password (like :ramesh,confirm password ramesh)
+5) Check the apache2 server is started (service apachew2 status)
+6) apt-get install nagios3
+7) press tab -> ok tab -> ok
+8) Give password ramesh (Default nagios3 “nagiosadmin”)
+9) Nagiios3 installation completed check if the software is installation (copy the public ip like (123.456.56.67/nagios3)
+ 
+
+How to add New Node in Nagios3:
+1) First we need to check the node ip is pingable or not 
+2) Open the nagios3 server terminal go to (cd /etc/nagios3/config.d) 
+3) Copy the local-nagios.cfg with Node private DNS IP  address(cp local-nagios.cfg private DNS Name.cfg(don’t forget give extinctions with .cfg“)
+4) Open the copied config file 
+Define host{
+Host_nane    public dns ip
+Alias            public ip
+Address    private ip
+}
+
+5) Replace all where local host to public dns ip
+6) Check if it is working or not by using below command
+naigos3 –v /etc/nagios3/nagios.cfg
+7) Then restart the nagios3 (service nagios3 restart)
